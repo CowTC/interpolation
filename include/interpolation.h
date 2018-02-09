@@ -17,10 +17,10 @@ class InterpolationMethods
         int set_input(float *input);
 
         //calculation of coefficient        
-        int extrpolation_coefficient_cbsi();
+        int extrpolation_coefficient();
 
         //interpolation
-        int interpolation(float xCoord, float *output);
+        int interpolation(float *coord, float *output);
 
     private:
 

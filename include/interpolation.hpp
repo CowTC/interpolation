@@ -117,7 +117,8 @@ int InterpolationMethods::set_input(float *input)
 
     return 0;
 }
-int InterpolationMethods::extrpolation_coefficient_cbsi()
+
+int InterpolationMethods::extrpolation_coefficient()
 {
     if(1==type_)
         extrpolation_coefficient_cbsi_0();
@@ -198,17 +199,29 @@ int InterpolationMethods::extrpolation_coefficient_cbsi_2()
 }
 
 //interpolation
-int InterpolationMethods::interpolation(float xCoord, float *output)
+int InterpolationMethods::interpolation(float *coord, float *output)
 {
 
+    //value
     if(1==type_)
-        interpolation_cbsi_1D_0(xCoord, output);
+    {
+        if(1==nDim_)
+            interpolation_cbsi_1D_0(coord[0], output);
+    }
 
+    //1st order
     if(2==type_)
-        interpolation_cbsi_1D_1(xCoord, output);
+    {
+        if(1==nDim_)
+            interpolation_cbsi_1D_1(coord[0], output);
+    }
 
+    //2nd order
     if(3==type_)
-        interpolation_cbsi_1D_2(xCoord, output);
+    {
+        if(1==nDim_)
+            interpolation_cbsi_1D_2(coord[0], output);
+    }
     
     return 0;
 }
